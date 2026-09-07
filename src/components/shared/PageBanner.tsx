@@ -7,7 +7,11 @@ interface PageBannerProps {
   subtitle?: string;
   image?: string;
   imageAlt?: string;
+  fullBleed?: boolean;
 }
+
+const TIGER =
+  'https://res.cloudinary.com/wsaz946u/image/upload/v1788166533/yeya-tiger.svg';
 
 export default function PageBanner({
   title,
@@ -15,7 +19,62 @@ export default function PageBanner({
   subtitle,
   image,
   imageAlt = '',
+  fullBleed = false,
 }: PageBannerProps) {
+  if (fullBleed && image) {
+    return (
+      <section className="relative overflow-hidden">
+        <div className="relative min-h-[420px] lg:min-h-[520px]">
+          <img
+            src={image}
+            alt={imageAlt}
+            className="absolute inset-0 h-full w-full object-cover"
+            loading="eager"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-ink-900/70 via-ink-900/30 to-ink-900/10" />
+
+          <img
+            src={TIGER}
+            alt=""
+            aria-hidden
+            className="absolute right-6 top-6 hidden h-16 w-16 drop-shadow-[0_8px_16px_rgba(31,42,55,0.25)] sm:block lg:right-10 lg:top-8 lg:h-24 lg:w-24"
+          />
+
+          <div className="container-page relative flex min-h-[420px] flex-col justify-end pb-16 lg:min-h-[520px] lg:pb-20">
+            {badge && (
+              <span className="inline-flex w-fit items-center gap-2 rounded-full bg-blush-300/90 px-4 py-1.5 font-body text-sm font-semibold text-ink-900 shadow-soft backdrop-blur-sm">
+                <Sparkles className="h-4 w-4" strokeWidth={2.25} />
+                {badge}
+              </span>
+            )}
+
+            <h1 className="mt-5 max-w-3xl font-heading text-3xl font-extrabold leading-[1.12] tracking-tight text-cream-100 sm:text-4xl lg:text-[2.75rem]">
+              {title}
+            </h1>
+
+            {subtitle && (
+              <p className="mt-4 max-w-2xl font-body text-base leading-relaxed text-cream-100/90 lg:text-lg">
+                {subtitle}
+              </p>
+            )}
+          </div>
+        </div>
+
+        <svg
+          aria-hidden
+          viewBox="0 0 1440 80"
+          preserveAspectRatio="none"
+          className="block h-10 w-full text-cream-100 sm:h-14"
+        >
+          <path
+            d="M0 40 C 240 80, 480 0, 720 30 C 960 60, 1200 20, 1440 45 L 1440 80 L 0 80 Z"
+            fill="currentColor"
+          />
+        </svg>
+      </section>
+    );
+  }
+
   return (
     <section className="relative overflow-hidden bg-sky-100">
       <div
