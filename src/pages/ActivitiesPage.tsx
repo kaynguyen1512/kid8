@@ -1,4 +1,6 @@
 import PageBanner from '@/components/shared/PageBanner';
+import ActivitiesShowcase from '@/components/activities/ActivitiesShowcase';
+import FinalCTA from '@/components/home/FinalCTA';
 
 export default function ActivitiesPage() {
   return (
@@ -6,13 +8,13 @@ export default function ActivitiesPage() {
       <PageBanner
         badge="Mỗi ngày tại ILE"
         title="Hoạt động thường ngày"
-        subtitle="Không chỉ học tiếng Anh — con được trải nghiệm, vui chơi và thể hiện chính mình."
+        subtitle="Không chỉ học tiếng Anh - con được trải nghiệm, vui chơi và thể hiện chính mình qua từng hoạt động mỗi ngày."
+        image="https://res.cloudinary.com/wsaz946u/image/upload/v1788167436/kindy_slide3.webp"
+        imageAlt="Học viên ILE vui chơi cùng giáo viên"
+        fullBleed={true}
       />
-      <div className="container-page py-20">
-        <p className="font-body text-ink-600">
-          Nội dung trang Hoạt động sẽ được xây dựng ở giai đoạn tiếp theo.
-        </p>
-      </div>
+      <ActivitiesShowcase />
+      <FinalCTA />
     </>
   );
 }
