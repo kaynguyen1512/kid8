@@ -1,4 +1,6 @@
 import PageBanner from '@/components/shared/PageBanner';
+import ContactDetails from '@/components/contact/ContactDetails';
+import FinalCTA from '@/components/home/FinalCTA';
 
 export default function ContactPage() {
   return (
@@ -7,12 +9,12 @@ export default function ContactPage() {
         badge="Ghé thăm ILE"
         title="Liên hệ"
         subtitle="Đội ngũ ILE luôn sẵn sàng chào đón phụ huynh và các con."
+        image="https://res.cloudinary.com/wsaz946u/image/upload/v1788167436/kindy_slide2.webp"
+        imageAlt="Học viên và giáo viên ILE"
+        fullBleed={true}
       />
-      <div className="container-page py-20">
-        <p className="font-body text-ink-600">
-          Nội dung trang Liên hệ sẽ được xây dựng ở giai đoạn tiếp theo.
-        </p>
-      </div>
+      <ContactDetails />
+      <FinalCTA ctaText="LIÊN HỆ NGAY" ctaHref="tel:0123456789" />
     </>
   );
 }

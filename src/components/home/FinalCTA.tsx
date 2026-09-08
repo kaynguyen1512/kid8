@@ -7,7 +7,16 @@ const HERO_PHOTO =
 const TIGER =
   'https://res.cloudinary.com/wsaz946u/image/upload/v1788166533/yeya-tiger.svg';
 
-export default function FinalCTA() {
+interface FinalCTAProps {
+  ctaText?: string;
+  ctaHref?: string;
+}
+
+export default function FinalCTA({
+  ctaText = 'ĐĂNG KÝ HỌC THỬ MIỄN PHÍ NGAY',
+  ctaHref = trialLink,
+}: FinalCTAProps = {}) {
+  const isTel = ctaHref.startsWith('tel:');
   return (
     <section className="relative overflow-hidden bg-cream-200 py-20 lg:py-28">
       {/* Soft decorative blobs */}
@@ -86,21 +95,37 @@ export default function FinalCTA() {
 
             {/* Primary CTA - scaled up */}
             <div className="mt-8">
-              <Link
-                to={trialLink}
-                className="group relative inline-flex items-center justify-center gap-3 rounded-[24px] bg-ink-900 px-8 py-5 font-body text-base font-extrabold tracking-wide text-cream-100 shadow-lift transition-all duration-300 ease-smooth hover:bg-ink-800 hover:shadow-card sm:text-lg lg:px-10 lg:py-6 lg:text-xl"
-              >
-                {/* Sparkle accent near button */}
-                <Star
-                  className="absolute -left-2 -top-2 h-5 w-5 fill-yellow-300 text-yellow-300 transition-transform duration-300 ease-smooth group-hover:scale-110 group-hover:rotate-12"
-                  strokeWidth={1}
-                />
-                ĐĂNG KÝ HỌC THỬ MIỄN PHÍ NGAY
-                <ArrowRight
-                  className="h-6 w-6 transition-transform duration-300 ease-smooth group-hover:translate-x-1"
-                  strokeWidth={2.25}
-                />
-              </Link>
+              {isTel ? (
+                <a
+                  href={ctaHref}
+                  className="group relative inline-flex items-center justify-center gap-3 rounded-[24px] bg-ink-900 px-8 py-5 font-body text-base font-extrabold tracking-wide text-cream-100 shadow-lift transition-all duration-300 ease-smooth hover:bg-ink-800 hover:shadow-card sm:text-lg lg:px-10 lg:py-6 lg:text-xl"
+                >
+                  <Star
+                    className="absolute -left-2 -top-2 h-5 w-5 fill-yellow-300 text-yellow-300 transition-transform duration-300 ease-smooth group-hover:scale-110 group-hover:rotate-12"
+                    strokeWidth={1}
+                  />
+                  {ctaText}
+                  <ArrowRight
+                    className="h-6 w-6 transition-transform duration-300 ease-smooth group-hover:translate-x-1"
+                    strokeWidth={2.25}
+                  />
+                </a>
+              ) : (
+                <Link
+                  to={ctaHref}
+                  className="group relative inline-flex items-center justify-center gap-3 rounded-[24px] bg-ink-900 px-8 py-5 font-body text-base font-extrabold tracking-wide text-cream-100 shadow-lift transition-all duration-300 ease-smooth hover:bg-ink-800 hover:shadow-card sm:text-lg lg:px-10 lg:py-6 lg:text-xl"
+                >
+                  <Star
+                    className="absolute -left-2 -top-2 h-5 w-5 fill-yellow-300 text-yellow-300 transition-transform duration-300 ease-smooth group-hover:scale-110 group-hover:rotate-12"
+                    strokeWidth={1}
+                  />
+                  {ctaText}
+                  <ArrowRight
+                    className="h-6 w-6 transition-transform duration-300 ease-smooth group-hover:translate-x-1"
+                    strokeWidth={2.25}
+                  />
+                </Link>
+              )}
             </div>
 
             {/* Microcopy */}
