@@ -1,4 +1,7 @@
 import PageBanner from '@/components/shared/PageBanner';
+import VisionSection from '@/components/about/VisionSection';
+import MissionSection from '@/components/about/MissionSection';
+import FinalCTA from '@/components/home/FinalCTA';
 
 export default function AboutPage() {
   return (
@@ -7,12 +10,13 @@ export default function AboutPage() {
         badge="Về chúng tôi"
         title="Giới thiệu ILE"
         subtitle="Hành trình kiên định với sứ mệnh mang tiếng Anh đến gần hơn với trẻ em Việt Nam."
+        image="https://res.cloudinary.com/wsaz946u/image/upload/v1788167404/kindy_little-girls-section-sun-little-kids.webp"
+        imageAlt="Học viên ILE"
+        fullBleed={true}
       />
-      <div className="container-page py-20">
-        <p className="font-body text-ink-600">
-          Nội dung trang Giới thiệu sẽ được xây dựng ở giai đoạn tiếp theo.
-        </p>
-      </div>
+      <VisionSection />
+      <MissionSection />
+      <FinalCTA />
     </>
   );
 }
