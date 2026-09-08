@@ -14,6 +14,7 @@ export default function TeachersPage() {
         subtitle="Giáo viên bản ngữ và Việt Nam giàu kinh nghiệm, luôn đồng hành cùng từng giai đoạn phát triển của con."
         image={BANNER_PHOTO}
         imageAlt="Giáo viên tại ILE"
+        fullBleed={true}
       />
       <TeacherGallery />
       <FinalCTA />
